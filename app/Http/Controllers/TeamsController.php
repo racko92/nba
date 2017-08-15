@@ -23,7 +23,7 @@ class TeamsController extends Controller
         $team = Team::findOrFail($id);
 
         return view('teams.show', [
-            'team'=> $team
+            'team'=> $team,
         ]);
     }
 }
