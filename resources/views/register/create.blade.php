@@ -36,7 +36,7 @@
         <label for="password_confirmation">Password Confirmation</label>
         <input type="password" id="password_confirmation" name="password_confirmation" class="form-control" required>
 
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
     </form>
 
     @if (count($errors->all()) > 0)
