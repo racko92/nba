@@ -8,7 +8,8 @@
     @endforeach
 
 <nav class="blog-pagination">
-    <a class="btn btn-outline-primary" href="#">Older</a>
-    <a class="btn btn-outline-secondary disabled" href="#">Newer</a>
+    <a class="btn btn-outline-{{ $teams->currentPage() == 1 ? 'secondary disabled' : 'primary' }}" href="{{ $teams->previousPageUrl() }}">Older</a>
+    <a class="btn btn-outline-{{ $teams->hasMorePages() ? 'primary' : 'secondary disabled' }}" href="{{ $teams->nextPageUrl() }}">Newer</a>
+    Page {{ $teams->currentPage() }} of {{ $teams->lastPage() }}
 </nav>
     @endsection

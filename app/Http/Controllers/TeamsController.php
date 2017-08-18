@@ -14,10 +14,11 @@ class TeamsController extends Controller
 
     public function index()
     {
-        $teams = Team::all();
+        $teams = Team::paginate(10);
 
         return view('teams.index', ['teams' => $teams]);
     }
+
     public function show($id)
     {
         $team = Team::findOrFail($id);
