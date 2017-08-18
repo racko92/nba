@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\News;
 use Illuminate\Http\Request;
+use App\Team;
 
 class NewsController extends Controller
 {
@@ -18,5 +19,11 @@ class NewsController extends Controller
         $news = News::findOrFail($id);
 
         return view('news.show', ['news' => $news]);
+    }
+    public function filter(Team $team)
+    {
+        $news = $team->news()->with('users')->latest()->paginate(10);
+
+        return view('news.index', ['news' => $news]);
     }
 }

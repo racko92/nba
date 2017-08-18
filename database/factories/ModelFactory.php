@@ -31,3 +31,13 @@ $factory->define(App\News::class, function (Faker\Generator $faker) {
         'content' => $faker->text(600)
         ];
 });
+$factory->define(App\Team::class, function (Faker\Generator $faker) {
+    static $password;
+
+    return [
+        'name' => $faker->name,
+        'email' => $faker->unique()->safeEmail,
+        'address' => $faker->sentences(1, true),
+        'city' => $faker->name,
+    ];
+});
